@@ -1,0 +1,293 @@
+/* Freebies — Asdale Dynamics, LLC. Warm, polished, local-first styles. */
+:root {
+  --bg: #fbfaf5;
+  --surface: #ffffff;
+  --text: #212924;
+  --muted: #5b645f;
+  --accent: #2e6e5e;
+  --accent-hover: #245a4c;
+  --border: #d8dcd5;
+  --chip-bg: #eef2ee;
+  --chip-active-bg: #2e6e5e;
+  --chip-active-text: #ffffff;
+  --prompt-bg: #f3f5f0;
+  --max-width: 900px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.site-header {
+  padding: 3rem 0 1.5rem;
+  text-align: center;
+}
+
+.site-header h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.tagline {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+  color: var(--muted);
+}
+
+.credit {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.credit strong {
+  color: var(--text);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+#search {
+  flex: 1 1 260px;
+  min-width: 200px;
+  padding: 0.6rem 0.9rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--text);
+}
+
+#search:focus {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  padding: 0.35rem 0.85rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  background: var(--chip-bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--accent);
+}
+
+.chip.active {
+  background: var(--chip-active-bg);
+  color: var(--chip-active-text);
+  border-color: var(--chip-active-bg);
+}
+
+.count {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.55rem;
+  border-radius: 0.35rem;
+  background: var(--chip-bg);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  align-self: flex-start;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.use-case {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.prompt-block {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.prompt-label,
+.steps-label {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.prompt-block pre {
+  margin: 0;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--prompt-bg);
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: var(--text);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.prompt-block code {
+  font-family: inherit;
+}
+
+.prompt-block .copy {
+  align-self: flex-end;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.prompt-block .copy:hover {
+  border-color: var(--accent);
+  background: var(--chip-bg);
+}
+
+.steps-block ol {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--text);
+}
+
+.steps-block li {
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.source {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+}
+
+.disclaimer {
+  margin: 0;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.5rem;
+  background: #fdf3f0;
+  border: 1px solid #f3d7cc;
+  color: #7a3d2e;
+  font-size: 0.85rem;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--muted);
+  font-size: 1rem;
+  padding: 2rem 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+.site-footer {
+  margin-top: 3rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.site-footer a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .site-header h1 {
+    font-size: 1.9rem;
+  }
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #search {
+    min-width: auto;
+  }
+}
