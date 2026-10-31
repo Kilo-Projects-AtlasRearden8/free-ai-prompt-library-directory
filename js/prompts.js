@@ -160,6 +160,23 @@ const PROMPTS = [
     source: "prompts/bookkeeping.md",
   },
   {
+    id: "marketing-simple-email",
+    category: "Marketing",
+    title: "Write a simple marketing email",
+    useCase:
+      "You want to send one short, friendly email to your audience (customers, readers, or subscribers) without sounding like a billboard.",
+    examplePrompt:
+      "Write a short marketing email for {{PRODUCT_OR_OFFER}} aimed at {{AUDIENCE}}. Structure: a friendly subject line, a 2-3 sentence opening that names the reader's problem, one clear benefit, a single call to action, and a soft sign-off. Tone: warm, plain English, like a small business owner writing to a neighbor. No all-caps, no fake urgency, no emojis. Keep it under 120 words.",
+    steps: [
+      "Fill in {{PRODUCT_OR_OFFER}} and {{AUDIENCE}}.",
+      "Paste into any free AI chat.",
+      "Check the subject line yourself — the best one is often your own.",
+      "Send from your own email list or platform; never buy a recipient list.",
+    ],
+    tags: ["marketing", "email", "small-business"],
+    source: "prompts/marketing.md",
+  },
+  {
     id: "daily-life-meal-plan",
     category: "Daily Life",
     title: "Meal plan from what's already in your pantry",
@@ -220,6 +237,41 @@ const PROMPTS = [
       "Do step one only. Stop if you need to — that still counts.",
     ],
     tags: ["daily-life", "adhd-friendly", "productivity"],
+    source: "prompts/daily-life.md",
+  },
+  {
+    id: "daily-life-budget-from-statement",
+    category: "Daily Life",
+    title: "Budget from a bank statement",
+    useCase:
+      "You have a month of bank transactions and want a simple, honest budget you can actually follow — low-energy, ADHD-friendly.",
+    examplePrompt:
+      "Here are my bank transactions for {{MONTH}}. Group them into categories (Groceries, Rent/Housing, Transport, Subscriptions, Eating Out, Transfers/Savings, Other) and tell me the total per category. Then write a plain-English summary: what I spent the most on, and one small suggestion for next month that feels doable. No shame, no jargon. Mask any account numbers, customer names, or payment details before pasting.\n{{TRANSACTIONS}}",
+    steps: [
+      "Export one month of transactions as CSV or copy a few rows.",
+      "Mask anything personal before pasting.",
+      "Paste into any free AI chat.",
+      "Copy the category totals into a simple spreadsheet or note.",
+      "Change one small thing next month — that's the whole plan.",
+    ],
+    tags: ["daily-life", "budgeting", "adhd-friendly"],
+    source: "prompts/daily-life.md",
+  },
+  {
+    id: "daily-life-organize-paperwork",
+    category: "Daily Life",
+    title: "Organize digital paperwork",
+    useCase:
+      "You have a messy folder of scanned receipts, PDFs, and photos and want a simple naming and folder plan.",
+    examplePrompt:
+      "I have digital files for {{PURPOSE}} (receipts, invoices, medical records, etc.). Suggest a simple folder structure and a naming convention that works on a phone and a computer. Include: how many folders, what to name files (date-first so they sort), what to delete or archive, and a 5-minute starter routine. Keep it to one screen of text.",
+    steps: [
+      "Pick one small pile of files to start with — not everything at once.",
+      "Create the folders the prompt suggests.",
+      "Rename files date-first (YYYY-MM-DD what-it-is).",
+      "Delete or archive anything you won't need this year.",
+    ],
+    tags: ["daily-life", "paperwork", "organization", "adhd-friendly"],
     source: "prompts/daily-life.md",
   },
   {
@@ -298,6 +350,7 @@ const CATEGORIES = [
   "Reselling",
   "Bookkeeping",
   "Daily Life",
+  "Marketing",
   "Healthcare",
   "Fun",
 ];

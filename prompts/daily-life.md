@@ -66,3 +66,39 @@ I need to start {{TASK}} but I'm low on energy today. Break it into 5 steps so s
 1. Name the task you're avoiding in `{{TASK}}`.
 2. Paste into any free AI chat.
 3. Do step one only. Stop if you need to — that still counts.
+
+---
+
+## Budget from a bank statement
+
+**Use case:** You have a month of bank transactions and want a simple, honest budget you can actually follow — low-energy, ADHD-friendly.
+
+**Example prompt:**
+```
+Here are my bank transactions for {{MONTH}}. Group them into categories (Groceries, Rent/Housing, Transport, Subscriptions, Eating Out, Transfers/Savings, Other) and tell me the total per category. Then write a plain-English summary: what I spent the most on, and one small suggestion for next month that feels doable. No shame, no jargon. Mask any account numbers, customer names, or payment details before pasting.
+{{TRANSACTIONS}}
+```
+
+**Steps:**
+1. Export one month of transactions as CSV or copy a few rows.
+2. Mask anything personal before pasting.
+3. Paste into any free AI chat.
+4. Copy the category totals into a simple spreadsheet or note.
+5. Change one small thing next month — that's the whole plan.
+
+---
+
+## Organize digital paperwork
+
+**Use case:** You have a messy folder of scanned receipts, PDFs, and photos and want a simple naming and folder plan.
+
+**Example prompt:**
+```
+I have digital files for {{PURPOSE}} (receipts, invoices, medical records, etc.). Suggest a simple folder structure and a naming convention that works on a phone and a computer. Include: how many folders, what to name files (date-first so they sort), what to delete or archive, and a 5-minute starter routine. Keep it to one screen of text.
+```
+
+**Steps:**
+1. Pick one small pile of files to start with — not everything at once.
+2. Create the folders the prompt suggests.
+3. Rename files date-first (YYYY-MM-DD what-it-is).
+4. Delete or archive anything you won't need this year.

@@ -1,12 +1,8 @@
 (() => {
   "use strict";
 
-  const PROMPTS_DATA = [];
-  const CATEGORIES_DATA = [];
-
-  // Load prompts.js (exports via a small inline module shim for browsers without
-  // module support in mind; prompts.js sets window.FREEBIES when loaded as a
-  // classic script). Fallback: fetch nothing — data is inlined at build time.
+  // prompts.js (loaded as an ES module) exposes window.FREEBIES. It runs before
+  // the load event, so we read it on load with a safe fallback to an empty grid.
   window.addEventListener("load", () => {
     const data = window.FREEBIES || { prompts: [], categories: [] };
     init(data.prompts, data.categories);
@@ -22,9 +18,24 @@
     buildFilters(categories);
     render(prompts, filtersEl, gridEl, countEl, null);
 
+    const clearBtn = document.getElementById("clear");
+
+    function syncClearButton() {
+      clearBtn.hidden = searchInput.value.length === 0;
+    }
+    syncClearButton();
+
     searchInput.addEventListener("input", (e) => {
       const q = e.target.value.toLowerCase();
       render(prompts, filtersEl, gridEl, countEl, activeCategory, q);
+      syncClearButton();
+    });
+
+    clearBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      render(prompts, filtersEl, gridEl, countEl, activeCategory, "");
+      syncClearButton();
+      searchInput.focus();
     });
 
     filtersEl.addEventListener("click", (e) => {
@@ -34,6 +45,19 @@
       activeCategory = cat === activeCategory ? null : cat;
       updateChips(filtersEl, activeCategory);
       render(prompts, filtersEl, gridEl, countEl, activeCategory, searchInput.value.toLowerCase());
+      syncClearButton();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "/" && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      if (e.key === "Escape" && searchInput.value.length > 0) {
+        searchInput.value = "";
+        render(prompts, filtersEl, gridEl, countEl, activeCategory, "");
+        syncClearButton();
+      }
     });
   }
 
@@ -127,7 +151,9 @@
           <p class="steps-label">Steps</p>
           <ol>${stepsHtml}</ol>
         </div>
-        <p class="source">Source: ${escapeHtml(prompt.source)}</p>
+        <p class="source">Source: <a class="source-link" href="${escapeHtml(
+          prompt.source
+        )}" target="_blank" rel="noopener noreferrer">View markdown source</a></p>
         ${disclaimerHtml}
       `;
       gridEl.appendChild(card);
